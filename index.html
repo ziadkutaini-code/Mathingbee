@@ -1,0 +1,97 @@
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathing Bee 🐝 — 2 Minute Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+  
+<body>
+  <div class="wrap">
+    <div class="card" role="application" aria-labelledby="title">
+      <header>
+        <h1 id="title">Mathing Bee🐝 — 2 Minute Test</h1>
+        <div class="grade-dropdown">
+            <button id="gradeButton"><p id="selectedGrade">Grade 5</p></button>
+            <ul id="gradeList" class="hidden">
+              <li data-grade="5">Grade 5</li>
+              <li data-grade="6">Grade 6</li>
+              <li data-grade="7">Grade 7</li>
+              <li data-grade="8">Grade 8</li>
+              <li data-grade="9">Grade 9</li>
+              <li data-grade="10">Grade 10</li>
+              <li data-grade="11">Grade 11</li>
+              <li data-grade="12">Grade 12</li>
+            </ul>
+          </div>
+        
+
+        <div class="meta">
+          <div class="chip">Score: <span id="score">0</span></div>
+          <div class="chip">Skips left: <span id="skips">5</span></div>
+          <div class="timer" id="timer">02:00</div>
+        </div>
+      </header>
+
+      <!-- Your existing test UI -->
+      <div class="grid">
+        <div class="main">
+          <div class="hint small">Just solve as quick as you can :) good luck</div>
+          <div class="question" id="question">—</div>
+
+          <div class="input-row">
+            <input inputmode="numeric" id="answerInput" class="answer" autocomplete="off" placeholder="Type answer..." aria-label="Answer input" />
+            <button id="skipBtn" class="secondary">Skip</button>
+            <button id="startBtn" class="btn">Start Test</button>
+          </div>
+
+          <div style="margin-top:18px">
+            <div class="small-muted">Time left:</div>
+            <div class="progress" aria-hidden="true">
+              <div class="bar" id="bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="side" aria-label="Stats">
+          <div class="stats">
+            <div class="stat"><div><div class="small">Time remaining</div><strong id="timeRemaining">120s</strong></div></div>
+            <div class="stat"><div><div class="small">Correct answers</div><strong id="correctCount">0</strong></div></div>
+            <div class="stat"><div><div class="small">Attempted</div><strong id="attemptedCount">0</strong></div></div>
+            <div class="stat"><div><div class="small">Accuracy</div><strong id="accuracy">0%</strong></div></div>
+          </div>
+
+          <div style="margin-top:16px">
+            <div class="small-muted">Controls</div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <button id="resetBtn" class="secondary">Reset</button>
+              <button id="helpBtn" class="secondary">Help</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="footer">
+        <div class="small-muted">Problems: single operation (+, −, ×, ÷) — operands 1–20. Division yields integer results.</div>
+        <div class="small-muted">Auto-check on input • 5 skips • 2 minutes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results UI -->
+  <div id="resultOverlay" class="result-overlay" style="display:none">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="resTitle">
+      <h2 id="resTitle">Time's up!</h2>
+      <p class="small-muted">Final score:</p>
+      <h3 id="finalScore" style="margin:6px 0 10px 0;font-size:28px"></h3>
+      <p class="small-muted">Correct answers: <span id="finalCorrect"></span> • Attempted: <span id="finalAttempt"></span> • Accuracy: <span id="finalAcc"></span>%</p>
+      <div style="margin-top:14px;display:flex;gap:8px;justify-content:flex-end">
+        <button id="closeResult" class="btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
