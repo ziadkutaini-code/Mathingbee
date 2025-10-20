@@ -1,0 +1,279 @@
+ :root {
+    --bg:#0f1724; 
+    --card:#0b1220; 
+    --accent:#7dd3fc; 
+    --muted:#94a3b8; 
+    --good:#10b981;
+  }
+  
+  html,body {
+    height:100%; 
+    margin:0; 
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; 
+    background:linear-gradient(180deg,#071126 0%, #071a2a 100%);
+    color:#e6eef6
+  }
+  
+  .wrap {
+    min-height:100%; 
+    display:flex; 
+    align-items:center; 
+    justify-content:center;
+    padding:24px
+  }
+  
+  /* main ui */
+  .card {
+    width:100%; 
+    max-width:740px;           
+    background:lineargradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+    border-radius:15px;
+    padding:22px;
+    box-shadow:0 8px 30px rgba(2,6,23,0.7);
+    border:1px solid rgba(255,255,255,0.03)
+  }
+  
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px
+  }
+  
+  h1{
+    font-size:20px;
+    margin:0
+  }
+  
+  .meta{
+    display:flex;
+    gap:12px;
+    align-items:center
+  }
+
+  /* Score and Skips left bar */
+  .chip{
+    background:rgba(255,255,255,0.03);
+    padding:8px 12px;
+    border-radius:999px;
+    font-weight:600;
+    color:var(--accent);
+    display:inline-flex;
+    align-items:center;
+    gap:8px
+  }
+  
+  .timer{
+    font-size:18px;
+    color:#fff;
+    font-weight:700
+  }
+  
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 260px;
+    gap:18px;
+    align-items:start
+  }
+  
+  .main{
+    padding:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+    border-radius:10px
+  }
+  
+  .side{
+    padding:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+    border-radius:10px;height:100%
+  }
+  
+  .question{
+    font-size:36px;
+    font-weight:800;
+    letter-spacing:0.4px;
+    color:#f8fafc;
+    margin:18px 0
+  }
+  
+  .hint{
+    color:var(--muted);
+    margin-bottom:10px
+  }
+  
+  .input-row{
+    display:flex;
+    gap:12px;
+    align-items:center
+  }
+  
+  input.answer{
+    font-size:20px;
+    padding:12px 14px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.02);
+    border:1px solid rgba(255,255,255,0.03);
+    color:#e6eef6;width:180px;outline:none
+  }
+  
+  input.answer:focus{
+    box-shadow:0 6px 20px rgba(125,211,252,0.07);
+    border-color:rgba(125,211,252,0.35)
+  }
+  
+  button.btn{
+    background:var(--accent);
+    border:none;
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:700;
+    color:#06202b;
+    cursor:pointer
+  }
+  
+  button.secondary{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.06);
+    color:var(--accent);
+    padding:8px 12px
+  }
+  
+  .stats{
+    display:flex;
+    flex-direction:column;
+    gap:10px
+  }
+  
+  .stat{display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px;
+    border-radius:8px;
+    background:rgba(0,0,0,0.1)
+  }
+  
+  .stat strong{
+    font-size:20px
+  }
+  
+  .small{
+    font-size:13px;
+    color:var(--muted)
+  }
+  
+  .footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:14px
+  }
+  
+  .progress{
+    height:8px;
+    background:rgba(255,255,255,0.03);
+    border-radius:999px;overflow:hidden
+  }
+  
+  .bar{
+    height:100%;
+    background:linear-gradient(90deg,#60a5fa,#7dd3fc);
+    width:0%
+  }
+  
+  .disabled{
+    opacity:0.45;
+    pointer-events:none
+  }
+  
+  .result-overlay{
+    position:fixed;
+    inset:0;display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(2,6,23,0.6);
+    backdrop-filter: blur(4px)
+  }
+  
+  .modal{
+    background:#071827;
+    padding:24px;
+    border-radius:12px;
+    border:1px solid rgba(125,211,252,0.08);
+    width:420px;
+    color:#e6eef6
+  }
+  
+  .modal h2{
+    margin-top:0
+  }
+  
+  .small-muted{
+    color:var(--muted);
+    font-size:13px
+  }
+  
+  @media (max-width:800px)
+  { 
+    .grid{
+      grid-template-columns:1fr;
+    } 
+    .side{
+      order:2
+    } 
+  }
+
+ .grade-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+#gradeButton {
+  background-color: #80d8ff;
+  color: black;
+  border: none;
+  padding: 2px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight:600;
+}
+
+#gradeButton:hover {
+  background-color: rgb(108, 196, 235);
+}
+
+#gradeList {
+  list-style: none;
+  background: rgb(35, 43, 62);
+  position: absolute;
+  top: 90%;
+  left: 0;
+  width: 95px;
+  margin-top: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 0;
+  z-index: 100;
+  border-radius: 15px;
+  font-weight: 600;
+  color: white;
+}
+
+#gradeList li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#gradeList li:hover {
+  background: rgb(50, 58, 77);
+  border-radius: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+#selectedGrade {
+  margin-top: 8px;
+  font-weight: bold;
+}
