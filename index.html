@@ -11,10 +11,10 @@
   <div class="wrap">
     <div class="card" role="application" aria-labelledby="title">
       <header>
-        <h1 id="title">Mathing Bee🐝 — 2 Minute Test</h1>
+        <h1 id="title">Mathing Bee 🐝</h1>
         <div class="grade-dropdown">
-            <button id="gradeButton"><p id="selectedGrade">Grade 5</p></button>
-            <ul id="gradeList" class="hidden">
+            <button id="gradeButton"><p id="selectedGrade"> Grade 5 </p> </button>
+            <ul id="gradeList">
               <li data-grade="5">Grade 5</li>
               <li data-grade="6">Grade 6</li>
               <li data-grade="7">Grade 7</li>
@@ -42,7 +42,7 @@
 
           <div class="input-row">
             <input inputmode="numeric" id="answerInput" class="answer" autocomplete="off" placeholder="Type answer..." aria-label="Answer input" />
-            <button id="skipBtn" class="secondary">Skip</button>
+            <button id="skipBtn" class="secondary">Skip <br> (Spacebar)</button>
             <button id="startBtn" class="btn">Start Test</button>
           </div>
 
@@ -66,15 +66,10 @@
             <div class="small-muted">Controls</div>
             <div style="display:flex;gap:8px;margin-top:8px">
               <button id="resetBtn" class="secondary">Reset</button>
-              <button id="helpBtn" class="secondary">Help</button>
+              <button id="helpBtn" class="secondary">Instructions</button>
             </div>
           </div>
         </aside>
-      </div>
-
-      <div class="footer">
-        <div class="small-muted">Problems: single operation (+, −, ×, ÷) — operands 1–20. Division yields integer results.</div>
-        <div class="small-muted">Auto-check on input • 5 skips • 2 minutes</div>
       </div>
     </div>
   </div>
@@ -95,3 +90,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
