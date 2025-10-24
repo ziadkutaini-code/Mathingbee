@@ -1,4 +1,4 @@
-const questionEl = document.getElementById('question');
+  const questionEl = document.getElementById('question');
   const answerInput = document.getElementById('answerInput');
   const scoreEl = document.getElementById('score');
   const skipsEl = document.getElementById('skips');
@@ -22,6 +22,8 @@ const questionEl = document.getElementById('question');
   const gradeButton = document.getElementById('gradeButton');
   const gradeList = document.getElementById('gradeList');
   const selectedGrade = document.getElementById('selectedGrade');
+  
+
 
   let al = 5, au = 20;
   
@@ -45,17 +47,16 @@ const questionEl = document.getElementById('question');
   let correct = 0;
 
   // Toggle dropdown
-  gradeButton.addEventListener('click', (event) => {
-    event.stopPropagation();
-    gradeList.classList.toggle('hidden');
+  gradeButton.addEventListener('click', () => {
+   gradeList.classList.toggle('show');
   });
-  
+
   // Handle grade selection
   gradeList.addEventListener('click', (e) => {
     if (e.target.tagName === 'LI') {
       const grade = Number(e.target.getAttribute('data-grade'));
       selectedGrade.textContent = `Grade ${grade}`;
-      gradeList.classList.add('hidden');
+      gradeList.classList.remove('show');
 
       // Change variable values depending on grade
       switch (grade) {
@@ -173,7 +174,12 @@ const questionEl = document.getElementById('question');
       }
     }
   });
-  
+
+  window.addEventListener('click', (e) => {
+    if (!gradeButton.contains(e.target) && !gradeList.contains(e.target)) {
+      gradeList.classList.remove('show');
+    }
+  });
   // define 
   function randInt(min, max){
     return Math.floor(Math.random()*(max - min + 1)) +min;
@@ -225,7 +231,7 @@ const questionEl = document.getElementById('question');
         } while(a > sdu);        // repeat until a <= 20
 
         ans = q;                // integer solution
-        text = `${a} / ${b}`;}
+        text = `${a} ÷ ${b}`;}
     
     // safety: ensure ans is integer and within 1..999 (or 0 allowed)
     if(!Number.isFinite(ans) || Math.abs(ans) > 999) return pickProblem();
