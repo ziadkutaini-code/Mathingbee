@@ -28,7 +28,6 @@
   
   /* main ui */
   .card {
-    width:100%; 
     max-width:776px;           
     background: var(--bg2);
     border-radius:15px;
