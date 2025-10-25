@@ -1,9 +1,10 @@
   :root {
-     --bg: #411650;
-     --side: #F03E0C;
-     --accent: #662677;
-     --side_text: #191919;
-     --main_text: #FFFFE9;
+     --bg: #1F1121;
+     --bg2: #36183d;
+     --side: #C7522A;
+     --accent: #FFFFFF10;
+     --side_text: #FFF8E1;
+     --main_text: #cae1ed;
        
   }
 
@@ -13,7 +14,7 @@
     margin:0; 
     font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; 
     background:linear-gradient(180deg,#071126 0%, #071a2a 100%);
-    color: #FFFFE9
+    color: var(--main_text)
   }
   
   .wrap {
@@ -22,14 +23,14 @@
     align-items:center; 
     justify-content:center;
     padding:24px;
-    background: #411650
+    background: var(--bg)
   }
   
   /* main ui */
   .card {
     width:100%; 
     max-width:776px;           
-    background: #411650;
+    background: var(--bg2);
     border-radius:15px;
     padding:22px;
     box-shadow:0 8px 30px rgba(2,6,23,0.7);
@@ -48,7 +49,7 @@
     font-size:20px;
     margin:0;
     font-weight: 1000;
-    color: #FFFFE9;
+    color: var(--main_text);
     background: #FFFFFF08;
     padding: 15px;
     border-radius: 19px;
@@ -61,11 +62,11 @@
 
   /* Score and Skips left bar */
   .chip{
-    background: #F03E0C;
+    background: var(--side);
     padding:8px 12px;
     border-radius:999px;
     font-weight:600;
-    color: #191919;
+    color: var(--side_text);
     display:inline-flex;
     align-items:center;
     gap:8px
@@ -74,7 +75,7 @@
   /* timer obv */
   .timer{
     font-size:25px;
-    color: #FFFFE9;
+    color: var(--main_text);
     font-weight:700;
   }
   
@@ -105,12 +106,12 @@
     font-size:36px;
     font-weight:900;
     letter-spacing:0.4px;
-    color:#FFFFE9;
+    color:var(--main_text);
     margin:18px 0
   }
   
   .hint{
-    color:#F03E0C;
+    color:var(--main_text);
     margin-bottom:10px
   }
   
@@ -124,12 +125,13 @@
     font-size:20px;
     padding:12px 14px;
     border-radius:20px;
-    background:rgba(255,255,255,0.1);
-    color:#e6eef6;
+    background:var(--accent);
+    color:var(--main_text);
+    font-weight:900;
     width:150px;
     outline:solid;
     outline-width: 3px;
-    outline-color: #662677;
+    outline-color: var(--accent);
     transition: 0.5s
   }
   
@@ -145,18 +147,21 @@
     font-size: 14px;
     padding:19px 14px;
     border-radius:40px;
+    font-family: 'Montserrat', sans-serif;
     font-weight:800;
+    letter-spacing: 0.02em; /* slight spacing for clarity */
     color:var(--side_text);
     cursor:pointer;
-    transition: 0.5s
+    transition: 0.2s
   }
   button.btn:hover{
     background: #F4562A;
-    transition: 0.5s
+    transition: 0.2s
   }
   button.btn:focus{
     background: #DA380B;
-    transition: 0.5s
+    transition: 0.2s;
+    box-shadow: 0 0px 6px var(--side);
   }
   
   /*Skip button*/
@@ -200,7 +205,7 @@
   /*The small grey writings*/ 
   .small{
     font-size:14px;
-    color:var(--side);
+    color:var(--main_text);
     font-weight: 800;
   }
   
@@ -213,8 +218,9 @@
   
   .progress{
     height:18px;
-    background:radial-gradient(#4F1F5F, #00000030);
-    border-radius:999px;overflow:hidden
+    background:radial-gradient(var(--accent), #00000030);
+    border-radius:999px;
+    overflow:hidden
   }
   
   .bar{
@@ -357,7 +363,7 @@
 }
 
 #gradeList li:hover {
-  background: var(--bg);
+  background: var(--bg2);
   border-radius: 15px;
 }
 
