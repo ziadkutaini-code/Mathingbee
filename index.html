@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mathing Bee 🐝 — 2 Minute Test</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
   
 <body>
@@ -33,27 +33,32 @@
           <div class="timer" id="timer">02:00</div>
         </div>
       </header>
-
+      
       <!-- Your existing test UI -->
       <div class="grid">
+        
         <div class="main">
           <div class="hint small">Just solve as quick as you can :) good luck</div>
           <div class="question" id="question">—</div>
-
+    
           <div class="input-row">
             <input inputmode="numeric" id="answerInput" class="answer" autocomplete="off" placeholder="Type answer..." aria-label="Answer input" />
             <button id="skipBtn" class="secondary">SKIP <br> (Spacebar)</button>
-            <button id="startBtn" class="btn">START TEST</button>
+            <button id="startBtn" class="btn">START</button>
           </div>
 
           <div style="margin-top:18px">
             <div class="small-muted">TIME LEFT:</div>
             <div class="progress" aria-hidden="true">
               <div class="bar" id="bar"></div>
+             
             </div>
+            <img src="https://drive.google.com/thumbnail?id=1VPlr935qaA4UXYMMgxabhuIgs_WppTdZ&sz=w2000"
+     alt=" Ihsan logo"
+     class="logo">
           </div>
         </div>
-
+        
         <aside class="side" aria-label="Stats">
           <div class="stats">
             <div class="stat"><div><div class="small">Time remaining</div><strong id="timeRemaining">120s</strong></div></div>
@@ -61,7 +66,7 @@
             <div class="stat"><div><div class="small">Attempted</div><strong id="attemptedCount">0</strong></div></div>
             <div class="stat"><div><div class="small">Accuracy</div><strong id="accuracy">0%</strong></div></div>
           </div>
-
+          
           <div style="margin-top:16px">
             <div class="small-muted">Controls</div>
             <div style="display:flex;gap:8px;margin-top:8px">
@@ -70,6 +75,7 @@
             </div>
           </div>
         </aside>
+        <div class="hint small">made by Ziad Kutaini</div>
       </div>
     </div>
   </div>
