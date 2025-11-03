@@ -10,9 +10,10 @@
 
   /* Mathing bee writing and the right side bar */
   html,body {
+    letter-spacing:1px;
     height:100%; 
     margin:0; 
-    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; 
+    font-family: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
     background:linear-gradient(180deg,#071126 0%, #071a2a 100%);
     color: var(--main_text)
   }
@@ -28,7 +29,8 @@
   
   /* main ui */
   .card {
-    max-width:776px;           
+    width: 100%;
+    max-width:779px;           
     background: var(--bg2);
     border-radius:15px;
     padding:22px;
@@ -37,6 +39,7 @@
   }
   
   header{
+    width:100%;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -45,13 +48,16 @@
   
   /* Mathing bee writing */
   h1{
-    font-size:20px;
+    width:29%;
+    font-size:30px;
     margin:0;
+    font-family: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 1000;
     color: var(--main_text);
     background: #FFFFFF08;
     padding: 15px;
-    border-radius: 19px;
+    border-radius: 30px;
+    overflow-wrap: break-word;
   }
   
   .meta{
@@ -68,12 +74,14 @@
     color: var(--side_text);
     display:inline-flex;
     align-items:center;
-    gap:8px
+    gap:8px;
+    overflow-wrap: break-word;
   }
   
   /* timer obv */
   .timer{
     font-size:25px;
+    font-family: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
     color: var(--main_text);
     font-weight:700;
   }
@@ -102,6 +110,7 @@
   
   /*the puestion*/
   .question{
+    font-family: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size:36px;
     font-weight:900;
     letter-spacing:0.4px;
@@ -121,6 +130,7 @@
   }
   
   input.answer{
+    font-family: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size:20px;
     padding:12px 14px;
     border-radius:20px;
@@ -146,7 +156,7 @@
     font-size: 14px;
     padding:19px 14px;
     border-radius:40px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-weight:800;
     letter-spacing: 0.02em; /* slight spacing for clarity */
     color:var(--side_text);
@@ -165,6 +175,7 @@
   
   /*Skip button*/
   button.secondary{
+    font-family: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
     border: none;
     color:var(--side_text);
     padding:10px 12px;
@@ -233,6 +244,11 @@
     opacity:0.45;
     pointer-events:none
   }
+  .logo{
+    width: 400px;
+    height: auto;
+    max-width: 100%;
+}
   
   .result-overlay{
     position:fixed;
@@ -282,8 +298,9 @@
 }
 
 #gradeButton {
+  font-family: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
   background-color: var(--side);
-  font-size: 17px;
+  font-size: 19px;
   color: var(--side_text);
   padding-top: 4px;
   padding-bottom: 0px;
@@ -292,7 +309,7 @@
   border-radius: 999px;
   cursor: pointer;
   transition: 0.2s;
-  font-weight:600;
+  font-weight:700;
   border:none;
   box-shadow: 0 5px 6px rgba(0,0,0,0.1);
   
@@ -322,7 +339,7 @@
   border-radius: 20px;
   font-weight: 600;
   color: var(--main_text);
-  font-size:20px;
+  font-size:19px;
   
   /* Start hidden but still in layout */
   opacity: 0;
