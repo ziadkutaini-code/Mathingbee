@@ -336,8 +336,6 @@
     if(asNum === currentAnswer){
       registerCorrect();
     } else {
-      // do nothing until they press enter (or if they manually submit)
-      // but we still mark attempts on Enter
     }
   });
 
@@ -375,7 +373,7 @@
     answerInput.disabled = false;
     startBtn.disabled = false;
     skipBtn.disabled = false;
-    questionEl.textContent = 'Press "Start Test" to begin';
+    questionEl.textContent = 'Press "Start" to begin';
     updateStats();
     timerEl.textContent = formatTime(totalSeconds);
     bar.style.width = '0%';
@@ -394,7 +392,7 @@
   // Initialize UI
   updateStats();
   timerEl.textContent = formatTime(totalSeconds);
-  questionEl.textContent = 'Press "Start Test" to begin';
+  questionEl.textContent = 'Press "Start" to begin';
   
   let canSkip = true; // One global flag
 
