@@ -1,39 +1,41 @@
-  const questionEl = document.getElementById('question');
-  const answerInput = document.getElementById('answerInput');
-  const scoreEl = document.getElementById('score');
-  const skipsEl = document.getElementById('skips');
-  const skipBtn = document.getElementById('skipBtn');
-  const startBtn = document.getElementById('startBtn');
-  const timerEl = document.getElementById('timer');
-  const timeRemainingEl = document.getElementById('timeRemaining');
-  const correctCountEl = document.getElementById('correctCount');
-  const attemptedCountEl = document.getElementById('attemptedCount');
-  const accuracyEl = document.getElementById('accuracy');
-  const resultOverlay = document.getElementById('resultOverlay');
-  const finalScore = document.getElementById('finalScore');
-  const finalCorrect = document.getElementById('finalCorrect');
-  const finalAttempt = document.getElementById('finalAttempt');
-  const finalAcc = document.getElementById('finalAcc');
-  const bar = document.getElementById('bar');
-  const resetBtn = document.getElementById('resetBtn');
-  const helpBtn = document.getElementById('helpBtn');
-  const closeResult = document.getElementById('closeResult');
-  const header = document.querySelector('header');
-  const gradeButton = document.getElementById('gradeButton');
-  const gradeList = document.getElementById('gradeList');
-  const selectedGrade = document.getElementById('selectedGrade');
-  
+const questionEl = document.getElementById('question');
+const answerInput = document.getElementById('answerInput');
+const scoreEl = document.getElementById('score');
+const skipsEl = document.getElementById('skips');
+const skipBtn = document.getElementById('skipBtn');
+const startBtn = document.getElementById('startBtn');
+const timerEl = document.getElementById('timer');
+const timeRemainingEl = document.getElementById('timeRemaining');
+const correctCountEl = document.getElementById('correctCount');
+const attemptedCountEl = document.getElementById('attemptedCount');
+const accuracyEl = document.getElementById('accuracy');
+const resultOverlay = document.getElementById('resultOverlay');
+const finalScore = document.getElementById('finalScore');
+const finalCorrect = document.getElementById('finalCorrect');
+const finalAttempt = document.getElementById('finalAttempt');
+const finalAcc = document.getElementById('finalAcc');
+const bar = document.getElementById('bar');
+const resetBtn = document.getElementById('resetBtn');
+const helpBtn = document.getElementById('helpBtn');
+const closeResult = document.getElementById('closeResult');
+const header = document.querySelector('header');
+const gradeButton = document.getElementById('gradeButton');
+const gradeList = document.getElementById('gradeList');
+const selectedGrade = document.getElementById('selectedGrade');
+
+const recentQuestions = [];
+const RECENT_LIMIT = 15;
 
 
-  let al = 5, au = 20;
+  let add_low_lim = 5, add_up_lim = 20;
   
-  let fml = 1, fmu = 9;
-  let sml = 5, smu = 20;
+  let first_multi_low_lim = 1, first_multi_up_lim = 9;
+  let second_multi_low_lim = 5, second_multi_up_lim = 20;
   
-  let sl = 5, su = 20;
+  let sub_low_lim = 5, sub_upper_lim = 20;
   
-  let fdl = 1, fdu = 9;
-  let sdl = 5, sdu = 20;
+  let first_div_low_lim = 1, first_div_up = 9;
+  let second_div_lim = 5, second_div_up_lim = 20;
   
   let negative = 0;
 
@@ -61,113 +63,113 @@
       // Change variable values depending on grade
       switch (grade) {
         case 5:
-          al = 5; au = 20;
+          add_low_lim = 5; add_up_lim = 20;
           
-          fml = 1; fmu = 9;
-          sml = 5; smu = 20;
+          first_multi_low_lim = 1; first_multi_up_lim = 9;
+          second_multi_low_lim = 5; second_multi_up_lim = 20;
           
-          sl = 5; su = 20;
+          sub_low_lim = 5; sub_upper_lim = 20;
           
-          fdl = 1; fdu = 9;
-          sdl = 5; sdu = 20;
+          first_div_low_lim = 1; first_div_up = 9;
+          second_div_lim = 5; second_div_up_lim = 20;
           
           negative = 0;
           break;
           
         case 6:
-          al = 10; au = 30;
+          add_low_lim = 10; add_up_lim = 30;
           
-          fml = 5; fmu = 9;
-          sml = 5; smu = 20;
+          first_multi_low_lim = 5; first_multi_up_lim = 9;
+          second_multi_low_lim = 5; second_multi_up_lim = 20;
           
-          sl = 10; su = 30;
+          sub_low_lim = 10; sub_upper_lim = 30;
           
-          fdl = 5; fdu = 9;
-          sdl = 5; sdu = 20;
+          first_div_low_lim = 5; first_div_up = 9;
+          second_div_lim = 5; second_div_up_lim = 20;
           
           negative = 0;
           break;
           
         case 7:
-          al = 15; au = 40;
+          add_low_lim = 15; add_up_lim = 40;
           
-          fml = 6; fmu = 11;
-          sml = 15; smu = 40;
+          first_multi_low_lim = 6; first_multi_up_lim = 11;
+          second_multi_low_lim = 15; second_multi_up_lim = 40;
           
-          sl = 15; su = 40;
+          sub_low_lim = 15; sub_upper_lim = 40;
           
-          fdl = 6; fdu = 11;
-          sdl = 15; sdu = 40;
+          first_div_low_lim = 6; first_div_up = 11;
+          second_div_lim = 15; second_div_up_lim = 40;
           
           negative = 0;
           break;
           
         case 8:
-          al = 20; au = 50;
+          add_low_lim = 20; add_up_lim = 50;
           
-          fml = 6; fmu = 11;
-          sml = 15; smu = 50;
+          first_multi_low_lim = 6; first_multi_up_lim = 11;
+          second_multi_low_lim = 15; second_multi_up_lim = 50;
           
-          sl = 20; su = 50;
+          sub_low_lim = 20; sub_upper_lim = 50;
           
-          fdl = 6; fdu = 11;
-          sdl = 15; sdu = 50;
+          first_div_low_lim = 6; first_div_up = 11;
+          second_div_lim = 15; second_div_up_lim = 50;
           
           negative = 0;
           break;
           
         case 9:
-          al = 25; au = 60;
+          add_low_lim = 25; add_up_lim = 60;
           
-          fml = 7; fmu = 11;
-          sml = 15; smu = 60;
+          first_multi_low_lim = 7; first_multi_up_lim = 11;
+          second_multi_low_lim = 15; second_multi_up_lim = 60;
           
-          sl = 25; su = 60;
+          sub_low_lim = 25; sub_upper_lim = 60;
           
-          fdl = 7; fdu = 11;
-          sdl = 15; sdu = 60;
+          first_div_low_lim = 7; first_div_up = 11;
+          second_div_lim = 15; second_div_up_lim = 60;
           
           negative = 1;
           break;
         
         case 10:
-          al = 25; au = 70;
+          add_low_lim = 25; add_up_lim = 70;
           
-          fml = 7; fmu = 11;
-          sml = 15; smu = 70;
+          first_multi_low_lim = 7; first_multi_up_lim = 11;
+          second_multi_low_lim = 15; second_multi_up_lim = 70;
           
-          sl = 25; su = 70;
+          sub_low_lim = 25; sub_upper_lim = 70;
           
-          fdl = 7; fdu = 11;
-          sdl = 15; sdu = 70;
+          first_div_low_lim = 7; first_div_up = 11;
+          second_div_lim = 15; second_div_up_lim = 70;
           
           negative = 1;
           break;
         
         case 11:
-          al = 25; au = 80;
+          add_low_lim = 25; add_up_lim = 80;
           
-          fml = 7; fmu = 11;
-          sml = 15; smu = 80;
+          first_multi_low_lim = 7; first_multi_up_lim = 11;
+          second_multi_low_lim = 15; second_multi_up_lim = 80;
           
-          sl = 25; su = 80;
+          sub_low_lim = 25; sub_upper_lim = 80;
           
-          fdl = 7; fdu = 11;
-          sdl = 15; sdu = 80;
+          first_div_low_lim = 7; first_div_up = 11;
+          second_div_lim = 15; second_div_up_lim = 80;
           
           negative = 1;
           break;
         
         case 12:
-          al = 25; au = 90;
+          add_low_lim = 25; add_up_lim = 90;
           
-          fml = 7; fmu = 11;
-          sml = 15; smu = 90;
+          first_multi_low_lim = 7; first_multi_up_lim = 11;
+          second_multi_low_lim = 15; second_multi_up_lim = 90;
           
-          sl = 25; su = 90;
+          sub_low_lim = 25; sub_upper_lim = 90;
           
-          fdl = 7; fdu = 11;
-          sdl = 15; sdu = 90;
+          first_div_low_lim = 7; first_div_up = 11;
+          second_div_lim = 15; second_div_up_lim = 90;
           
           negative = 1;
           break;
@@ -195,15 +197,16 @@
     
     // ADDITION
     if(op === '+'){
-      a = randInt(al, au); 
-      b = randInt(al, au);
-      ans = a + b;
-      text = `${a} + ${b}`;}
+        a = randInt(add_low_lim, add_up_lim); 
+        b = randInt(add_low_lim, add_up_lim);
+        ans = a + b;
+        text = `${a} + ${b}`;
+    }
     
     // SUBTRACTION
     else if (op === '-') {
-      a = randInt(sl, su);
-      b = randInt(sl, su);
+      a = randInt(sub_low_lim, sub_upper_lim);
+      b = randInt(sub_low_lim, sub_upper_lim);
 
       if (negative === 0) {
         if (b > a) [a, b] = [b, a]; // ensure non-negative answer
@@ -215,23 +218,33 @@
 
     // MULTIPLICATION
     else if(op === '*'){
-      a = randInt(fml,fmu); 
-      b = randInt(sml,smu);
-      
+      a = randInt(first_multi_low_lim, first_multi_up_lim); 
+      b = randInt(second_multi_low_lim, second_multi_up_lim);
       ans = a * b;
-      text = `${a} × ${b}`;} 
+      text = `${a} × ${b}`;
+    } 
     
     // DIVISION
     else if(op === '/'){
         let q, b, a;
         do {
             q = randInt(1, 100); // the integer result
-            b = randInt(fdl, fdu); // potential divisor
+            b = randInt(first_div_low_lim, first_div_up); // potential divisor
             a = b * q;
-        } while(a > sdu);        // repeat until a <= 20
+        } while(a > second_div_up_lim);        // repeat until a <= 20
+        ans = q;                   // integer solution
+        text = `${a} ÷ ${b}`;
+    }
 
-        ans = q;                // integer solution
-        text = `${a} ÷ ${b}`;}
+    const signature = `${text}=${ans}`;
+    if (recentQuestions.includes(signature)) {
+      return pickProblem(); // try again
+    }
+
+    recentQuestions.push(signature);
+    if (recentQuestions.length > RECENT_LIMIT) {
+      recentQuestions.shift();
+    }
     
     // safety: ensure ans is integer and within 1..999 (or 0 allowed)
     if(!Number.isFinite(ans) || Math.abs(ans) > 999) return pickProblem();
