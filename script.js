@@ -393,6 +393,7 @@ skipBtn.addEventListener('click', () => {
 startBtn.addEventListener('click', () => {
     // reset state and start
     score = 0; skipsLeft = 5; totalSeconds = 120; attempted = 0; correct = 0;
+    allowed_num_divisions = 0;
     started = true;
     answerInput.disabled = false;
     skipBtn.disabled = false;
@@ -407,7 +408,7 @@ startBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
     if(timer) clearInterval(timer);
 
-    score = 0; skipsLeft = 5; totalSeconds = 120; attempted = 0; correct = 0;
+    score = 0; skipsLeft = 5; totalSeconds = 120; attempted = 0; correct = 0; allowed_num_divisions = 0;
     started = false;
 
     answerInput.value = '';
