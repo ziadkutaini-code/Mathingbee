@@ -39,7 +39,7 @@ let second_div_lim = 1, second_div_up_lim = 100;
 let negative = 0;
 
 let score = 0;
-let skipsLeft = 5;
+let skipsLeft = 3;
 let started = false;
 let totalSeconds = 120;
 let timer = null;
@@ -242,20 +242,22 @@ function pickProblem(){
         } 
         else {
             function division(){
-            let q, b, a;
-            do {
-                q = randInt(1, 100); // the integer result
-                b = randInt(first_div_low_lim, first_div_up);
-                if (b === q){
-                    division();
-                    return;
-                }
+                let q, b, a;
+                do {
+                    q = randInt(1, 100); // the integer result
+                    b = randInt(first_div_low_lim, first_div_up);
+                    if (b === q){
+                        division();
+                        return;
+                    }
 
-                a = b * q;
-            } while(a > second_div_up_lim);       
-            ans = q;                 
-            text = `${a} ÷ ${b}`;
+                    a = b * q;
+                } 
+                while(a > second_div_up_lim);       
+                ans = q;                 
+                text = `${a} ÷ ${b}`;
             }
+            
             division();
             allowed_num_divisions += 1;
         }
@@ -272,10 +274,11 @@ function pickProblem(){
         recentQuestions.shift();
     }
     
-    // safety: ensure ans is integer and within 1..999 (or 0 allowed)
+    // insurance
     if(!Number.isFinite(ans) || Math.abs(ans) > 999) return pickProblem();
     currentAnswer = ans;
     questionEl.textContent = text;
+    
     // accessibility focus
     answerInput.value = '';
     answerInput.focus();
@@ -392,7 +395,7 @@ skipBtn.addEventListener('click', () => {
 // Start
 startBtn.addEventListener('click', () => {
     // reset state and start
-    score = 0; skipsLeft = 5; totalSeconds = 120; attempted = 0; correct = 0;
+    score = 0; skipsLeft = 3; totalSeconds = 120; attempted = 0; correct = 0;
     allowed_num_divisions = 0;
     started = true;
     answerInput.disabled = false;
@@ -404,11 +407,11 @@ startBtn.addEventListener('click', () => {
     startTimer();
 });
 
-// Reset button: reset everything
+// Reset 
 resetBtn.addEventListener('click', () => {
     if(timer) clearInterval(timer);
 
-    score = 0; skipsLeft = 5; totalSeconds = 120; attempted = 0; correct = 0; allowed_num_divisions = 0;
+    score = 0; skipsLeft = 3; totalSeconds = 120; attempted = 0; correct = 0; allowed_num_divisions = 0;
     started = false;
 
     answerInput.value = '';
