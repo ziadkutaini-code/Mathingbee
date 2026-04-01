@@ -428,7 +428,7 @@ resetBtn.addEventListener('click', () => {
 
 // Help button
 helpBtn.addEventListener('click', () => {
-    alert('Two-minute mental math test.\n\n• Start then solve problems that appear.\n• Answers are integers. Division is integer division (no fractions).\n• Type the correct answer and it will auto-advance.\n• You have 5 skips. Time is 2:00.\n• Press Enter to submit manually.');
+    alert('Two-minute mental math test.\n\n• Start then solve problems that appear.\n• Answers are integers. Division is integer division (no fractions).\n• Type the correct answer and it will auto-advance.\n• You have 3 skips. Time is 2:00.\n• Press Enter to submit manually.');
 });
 
 // close result overlay
